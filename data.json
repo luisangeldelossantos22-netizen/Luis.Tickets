@@ -1,0 +1,22 @@
+{
+  "appointments": [
+    {
+      "id": 1700000000000,
+      "date": "2025-12-01",
+      "time": "10:30",
+      "stylist": "Luis",
+      "clientName": "Juan Perez",
+      "service": "Corte de Cabello",
+      "status": "Confirmada"
+    },
+    {
+      "id": 1700000000001,
+      "date": "2025-12-01",
+      "time": "14:00",
+      "stylist": "Maria",
+      "clientName": "Ana Gomez",
+      "service": "Tinte",
+      "status": "Pendiente"
+    }
+  ]
+}
