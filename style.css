@@ -1,203 +1,133 @@
 :root {
-    --color-primary: #4f46e5;
-    --color-secondary: #eef2ff;
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-text: #1f2937;
+    --bg-body: #0d1117;
+    --text-color: #e6ecf2;
+
+    --red: #ff4b63;
+    --yellow: #ffd95c;
+    --green: #4eff8b;
+    --blue: #4db8ff;
+    --black: #121212;
+    --grey: #b6b6b6;
+
+    --glass-bg: rgba(255, 255, 255, 0.12);
+    --glass-border: rgba(255, 255, 255, 0.28);
+    --neon: rgba(0, 255, 255, 0.6);
+
+    --shadow-main: rgba(0, 0, 0, 0.45);
+    --shadow-neon: rgba(0, 255, 255, 0.4);
+
+    --hover-scale: 1.22;
 }
 
 body {
-    font-family: sans-serif;
-    background-color: #f7f9fc;
+    background: radial-gradient(circle at top, #1a2233, #0d1117 70%);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 40px;
     margin: 0;
-    padding: 0;
-    color: var(--color-text);
 }
+
 
 .container {
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-}
-
-.header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid var(--color-secondary);
-}
-
-.title {
-    color: var(--color-primary);
-    font-size: 2em;
-    font-weight: 700;
-}
-
-.controls {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.button {
-    padding: 10px 20px;
-    background-color: var(--color-primary);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.button:hover {
-    background-color: #3730a3;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.input-field {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: border-color 0.3s ease;
-}
-
-.input-field:focus {
-    border-color: var(--color-primary);
-    outline: none;
-}
-
-/* --- GRID AGENDA --- */
-.agenda-grid {
-    display: grid;
-    grid-template-columns: 80px repeat(3, 1fr);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-top: 20px;
-}
-
-.grid-header, .grid-cell {
-    padding: 10px 5px;
-    border: 1px solid #eee;
-    text-align: center;
-}
-
-.grid-header {
-    background-color: var(--color-primary);
-    color: white;
-    font-weight: 600;
-}
-
-.time-slot {
-    background-color: var(--color-secondary);
-    font-weight: 500;
-    font-size: 0.85em;
-    display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
     justify-content: center;
+    margin-top: 30px;
 }
 
-.appointment-cell {
-    min-height: 50px;
-    cursor: pointer;
-    background-color: white;
-    transition: background-color 0.3s ease;
-}
+/* =====================================
+   CUADROS ESTÉTICOS
+===================================== */
+div {
+    width: 100px;
+    height: 100px;
 
-.appointment-cell:hover {
-    background-color: #e0f7fa;
-}
-
-.appointment {
-    background-color: var(--color-primary);
-    color: white;
-    padding: 4px 6px;
-    border-radius: 4px;
-    margin: 3px;
-    font-size: 0.75em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    transition: transform 0.2s ease;
-}
-
-.appointment:hover {
-    transform: scale(1.02);
-}
-
-.appointment.confirmada {
-    background-color: var(--color-success);
-}
-
-.appointment.pendiente {
-    background-color: var(--color-warning);
-}
-
-/* --- MODAL --- */
-.modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-border);
+    border-radius: 22px;
+    backdrop-filter: blur(10px);
+
+    /* Sombras y neón suave */
+    box-shadow:
+        0 12px 25px var(--shadow-main),
+        inset 0 0 15px rgba(255,255,255,0.08);
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.4s ease,
+        filter 0.45s ease;
 }
 
-.modal-backdrop.open {
-    opacity: 1;
-    visibility: visible;
+/* =====================================
+   EFECTO HOVER PREMIUM (GAMING UI)
+===================================== */
+div:hover {
+    transform: scale(var(--hover-scale)) rotate(4deg);
+
+    box-shadow:
+        0 15px 35px var(--shadow-main),
+        0 0 25px var(--shadow-neon),
+        inset 0 0 25px rgba(255,255,255,0.15);
+
+    border-color: var(--neon);
+    filter: brightness(1.3);
 }
 
-.modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 450px;
-    transform: translateY(-50px);
-    transition: transform 0.3s ease;
+/* =====================================
+   FORMAS
+===================================== */
+.circle {
+    border-radius: 50%;
 }
 
-.modal-backdrop.open .modal-content {
-    transform: translateY(0);
+/* =====================================
+   COLORES CON EFECTO MÁS VIVO
+===================================== */
+.red {
+    background: var(--red);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 75, 99, 0.5);
 }
 
-.form-group {
-    margin-bottom: 15px;
+.yellow {
+    background: var(--yellow);
+    color: #333;
+    box-shadow: 0 0 20px rgba(255, 225, 92, 0.5);
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
+.green {
+    background: var(--green);
+    color: #003300;
+    box-shadow: 0 0 20px rgba(78, 255, 139, 0.5);
 }
 
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
+.blue {
+    background: var(--blue);
+    box-shadow: 0 0 20px rgba(77, 184, 255, 0.5);
 }
 
-.button-cancel {
-    background-color: #ccc;
-    color: var(--color-text);
+.black {
+    background: var(--black);
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
-.button-cancel:hover {
-    background-color: #bbb;
+.grey {
+    background: var(--grey);
+    color: #222;
+    box-shadow: 0 0 20px rgba(182, 182, 182, 0.5);
 }
